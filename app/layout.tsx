@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ParticleProvider } from './providers/ParticleProvider';
+import { ParticleConnectkit } from '@/components/connectkit';
 import { ThemeProvider } from './providers/theme-provider';
 import { ChatWidget } from '@/components/ChatWidget';
 
@@ -26,10 +26,10 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="elizas-theme"
         >
-          <ParticleProvider>
+          <ParticleConnectkit>
             {children}
             <ChatWidget />
-          </ParticleProvider>
+          </ParticleConnectkit>
         </ThemeProvider>
       </body>
     </html>
