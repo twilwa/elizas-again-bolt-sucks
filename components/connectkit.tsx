@@ -2,8 +2,9 @@
 
 import { ConnectKitProvider, createConfig } from '@particle-network/connectkit';
 import { authWalletConnectors } from '@particle-network/connectkit/auth';
-import { mainnet } from '@particle-network/connectkit/chains';
+import { mainnet, sepolia, baseSepolia } from '@particle-network/connectkit/chains';
 import { evmWalletConnectors } from '@particle-network/connectkit/evm';
+import { aa } from '@particle-network/connectkit/aa';
 import React from 'react';
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
@@ -18,16 +19,13 @@ const config = createConfig({
     projectId,
     clientKey,
     appId,
-    appearance: {
-        connectorsOrder: ['email', 'phone', 'social', 'wallet'],
-        splitEmailAndPhone: false,
-        collapseWalletList: false,
-        hideContinueButton: false,
-        mode: 'light',
-        theme: {
-            '--pcm-accent-color': '#ff4d4f',
-        },
-    },
+    
+    plugins: [
+        aa({
+            name: 'BICONOMY',
+            version: '2.0.0',
+        }),
+    ],
     walletConnectors: [
         authWalletConnectors({
             authTypes: ['email', 'google', 'github'],
@@ -45,9 +43,9 @@ const config = createConfig({
             },
         }),
     ],
-    chains: [mainnet],
+    chains: [mainnet, sepolia, baseSepolia],
 });
 
 export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
     return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
-};;
+};;;

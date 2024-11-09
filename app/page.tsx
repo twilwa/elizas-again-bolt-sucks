@@ -9,11 +9,11 @@ export default function Home() {
       <main className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold mb-6">
-            Welcome to <span className="text-primary">Elizas</span>
+            Meet <span className="text-primary">Eliza.</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            The premier marketplace for AI agents. Create, discover, and utilize
-            powerful AI assistants for your needs.
+            The open-source framework for compelling, realistic AI agents.
+            Any chain. Any platform. Most of all, any team -- including yours.
           </p>
         </div>
 

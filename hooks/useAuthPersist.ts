@@ -20,5 +20,5 @@ export function useAuthPersist() {
     };
 
     checkAuth();
-  }, []);
+  }, [getUserInfo, setUserInfo, setConnected]);
 }
