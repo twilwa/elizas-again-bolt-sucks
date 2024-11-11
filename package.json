@@ -13,6 +13,7 @@
     "@next/swc-wasm-nodejs": "13.5.1",
     "@particle-network/aa": "^2.0.2",
     "@particle-network/auth": "^1.2.2",
+    "@particle-network/chains": "^1.7.7",
     "@particle-network/connect": "^1.2.1",
     "@particle-network/connect-react-ui": "^1.2.1",
     "@particle-network/connectkit": "^2.0.9",

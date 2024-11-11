@@ -3,6 +3,7 @@
 import { WalletEntryPosition } from "@particle-network/auth";
 import { Ethereum, Polygon } from "@particle-network/chains";
 import { ModalProvider } from "@particle-network/connect-react-ui";
+import { ConnectConfig } from "@particle-network/connect";
 import "@particle-network/connect-react-ui/dist/index.css";
 
 export function ParticleProvider({ children }: { children: React.ReactNode }) {
@@ -28,19 +29,7 @@ export function ParticleProvider({ children }: { children: React.ReactNode }) {
           defaultWalletEntryPosition: WalletEntryPosition.BR,
           supportChains: [Ethereum, Polygon],
         },
-        authentication: {
-          options: ['email', 'google', 'twitter', 'github'],
-          defaultMethod: 'email',
-        },
-        appearance: {
-          showSignUpLink: true,
-          showTermsOfService: true,
-          showPrivacyPolicy: true,
-          theme: 'dark',
-          accentColor: '#FF5D01',
-          displayCloseButton: true,
-          modalWidth: '420px',
-        },
+        
       }}
       theme="dark"
       language="en"

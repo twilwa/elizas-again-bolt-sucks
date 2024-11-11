@@ -31,7 +31,15 @@ export interface Agent {
   };
   socialFeeds: SocialFeed[];
   tokens: Token[];
-  transactions: Transaction[];
+  transactions: {
+    type: string;
+    description: string;
+    timestamp: string;
+    amount: string;
+    token: string;
+    usdValue: string;
+    network: string;
+  }[];
 }
 
 export interface SocialFeed {
