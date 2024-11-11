@@ -55,3 +55,4 @@ export function AgentDetailModal({ agent, onClose }: AgentDetailModalProps) {
     </Dialog>
   );
 }
+

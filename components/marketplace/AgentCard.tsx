@@ -1,11 +1,11 @@
-import { 
-  Twitter, 
-  MessageCircle, 
+import {
   Bot,
+  ExternalLink,
+  MessageCircle,
+  Star,
+  Twitter,
   Users,
   Wallet,
-  ExternalLink,
-  Star
 } from "lucide-react";
 import { Agent } from "./types";
 import Link from "next/link";
@@ -43,7 +43,7 @@ export function AgentCard({ agent }: AgentCardProps) {
         <div className="space-y-4">
           {/* Creator Info */}
           <Link
-            href={`/creator/${agent.creator.id}`}
+            href={`/creator/${agent.creator.name}`}
             className="flex items-center gap-3 hover:bg-base-300 p-2 rounded-lg transition-colors"
           >
             <img
@@ -112,3 +112,4 @@ export function AgentCard({ agent }: AgentCardProps) {
     </div>
   );
 }
+

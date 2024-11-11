@@ -65,7 +65,7 @@ export interface Token {
 }
 
 export interface Transaction {
-  type: "incoming" | "outgoing";
+  type: string;
   description: string;
   timestamp: string;
   amount: string;
@@ -73,3 +73,4 @@ export interface Transaction {
   usdValue: string;
   network: string;
 }
+
