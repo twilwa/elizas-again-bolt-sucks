@@ -1,43 +1,40 @@
 // app/creator/[id]/page.tsx
 "use client";
 
-import { useState } from "react";
-
-
-import { use } from 'next/navigation';import { useState, useEffect } from 'react';
-ponents/dashboard/DashboardLayout";
+import { useState, useEffect } from "react";
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import { CreatorHeader } from "@/components/creator/CreatorHeader";
 import { CreatorAgents } from "@/components/creator/CreatorAgents";
 import { AgentDetailModal } from "@/components/creator/AgentDetailModal";
 import { mockCreators } from "@/components/creator/mockData";
-import { Agent } from "@/components/creator/types";
-Promise<
+import { Agent, Creator } from "@/components/creator/types";
+
 type Props = {
-  p>arams: {
+  params: {
     id: string;
   };
   searchParams?: { [key: string]: string | string[] | undefined };
-}async 
-export default function CreatorPage({ params, searchParams }: Props) {
-  const { id } = await params= useState<Agent | null>(null);
+};
+export default function CreatorPage({ params }: Props) {
+  const { id } = params;
+  const [creator, setCreator] = useState<Creator | null>(null);
+  const [agents, setAgents] = useState<Agent[]>([]);
+  const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
 
-  tCreator(creData);?
-    creatorData) {
-  const agentsData = creatorData.agents.map((agent) => ({
-      .agent,
-    transactions: agent.transactions.map((transaction) => ({
-      ...transaction,
-      ||  tgents(agentsData);
+  useEffect(() => {
+    const creatorData = mockCreators.find((c) => c.id === id);
+    if (creatorData) {
+      setCreator(creatorData);
+      setAgents(creatorData.agents);
     }
   }, [id]);
 
   if (!creator) {
     return (
       <DashboardLayout>
-      <div className="text-center">
-         <h1 className="text-2xl font-bold">Creator not found</h1>
-      )))   <p className="text-gray-600">The creator you're looking for doesn't exist.</p>
-          </div>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">Creator not found</h1>
+          <p className="text-gray-600">The creator you're looking for doesn't exist.</p>
         </div>
       </DashboardLayout>
     );
