@@ -1,14 +1,10 @@
 // app/creator/[id]/page.tsx
-"use client";
-
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { CreatorHeader } from "@/components/creator/CreatorHeader";
-import { CreatorAgents } from "@/components/creator/CreatorAgents";
-import { AgentDetailModal } from "@/components/creator/AgentDetailModal";
 import { mockCreators } from "@/components/creator/mockData";
-import { Agent, Creator } from "@/components/creator/types";
+import { Creator } from "@/components/creator/types";
+import { ClientCreatorContent } from "@/components/creator/ClientCreatorComponent";
 
 
 export function generateStaticParams() {
@@ -17,20 +13,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function CreatorPage() {
-  const params = useParams();
-  const { name } = params as { name: string };
-  const [creator, setCreator] = useState<Creator | null>(null);
-  const [agents, setAgents] = useState<Agent[]>([]);
-  const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
-
-  useEffect(() => {
-    const creatorData = mockCreators.find((c) => c.name === name);
-    if (creatorData) {
-      setCreator(creatorData);
-      setAgents(creatorData.agents);
-    }
-  }, [name]);
+export default async function CreatorPage({ params }: { params: { name: string } }) {
+  const { name } = params;
+  const creator = mockCreators.find((c) => c.name === name);
 
   if (!creator) {
     return (
@@ -50,16 +35,7 @@ export default function CreatorPage() {
       <div className="min-h-screen bg-base-100">
         <div className="container mx-auto px-4 py-6">
           <CreatorHeader creator={creator} />
-          <CreatorAgents
-            agents={agents}
-            onSelectAgent={(agent: Agent) => setSelectedAgent(agent)}
-          />
-          {selectedAgent && (
-            <AgentDetailModal
-              agent={selectedAgent}
-              onClose={() => setSelectedAgent(null)}
-            />
-          )}
+          <ClientCreatorContent creator={creator} />
         </div>
       </div>
     </DashboardLayout>
