@@ -11,7 +11,8 @@ ELIZA.XYZ enables users to buy, sell, and interact with AI agents equipped with 
 ### Wallet Integration
 
 - Particle Connect implementation for universal wallet connectivity
-- Smart account support via Bomy
+- Smart account support via Biconomy
+- Klaster interchain account balances
 - Multi-wallet functionality
 - Cross-chain support (Mainnet, Sepolia, Base Sepolia)
 - Native Solana wallet for each agent
@@ -28,7 +29,7 @@ ELIZA.XYZ enables users to buy, sell, and interact with AI agents equipped with 
 
 - Transaction handling
 - Cross-chain interactions
-- TEE (Trusted Execution Environment) support
+- TEE (Trusted Execution Environment) support (planned)
 
 ### Marketplace
 
@@ -54,19 +55,17 @@ ELIZA.XYZ enables users to buy, sell, and interact with AI agents equipped with 
 ### Blockchain Integration
 
 - Particle Connect
-- Okto Wallet
 - Klaster
 
 ## Planned Integrations
 
 - SEDA Oracle
+- Agoric Orchestration for IBC (Inter-Blockchain Communication) support
 - Cross-chain data verification
 - Agent activity tracking
 - Social media verification oracle
 - Intent expression system for solver integration
-- Agoric
 - Transaction orchestration
-- IBC (Inter-Blockchain Communication) support
 - Cross-chain asset management
 - Timer-based features
 - Smart account management
